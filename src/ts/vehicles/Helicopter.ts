@@ -213,39 +213,39 @@ export class Helicopter extends Vehicle implements IControllable, IWorldEntity
 		this.world.updateControls([
 			{
 				keys: ['Shift'],
-				desc: 'Ascend'
+				desc: '상승'
 			},
 			{
 				keys: ['Space'],
-				desc: 'Descend'
+				desc: '하강'
 			},
 			{
 				keys: ['W', 'S'],
-				desc: 'Pitch'
+				desc: '앞뒤 기울이기'
 			},
 			{
 				keys: ['Q', 'E'],
-				desc: 'Yaw'
+				desc: '좌우 회전'
 			},
 			{
 				keys: ['A', 'D'],
-				desc: 'Roll'
+				desc: '좌우 기울이기'
 			},
 			{
 				keys: ['V'],
-				desc: 'View select'
+				desc: '시점 전환'
 			},
 			{
 				keys: ['F'],
-				desc: 'Exit vehicle'
+				desc: '내리기'
 			},
 			{
 				keys: ['Shift', '+', 'R'],
-				desc: 'Respawn'
+				desc: '다시 출발'
 			},
 			{
 				keys: ['Shift', '+', 'C'],
-				desc: 'Free camera'
+				desc: '자유 카메라'
 			},
 		]);
 	}

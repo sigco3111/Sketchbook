@@ -375,43 +375,43 @@ export class Airplane extends Vehicle implements IControllable, IWorldEntity
 		this.world.updateControls([
 			{
 				keys: ['Shift'],
-				desc: 'Accelerate'
+				desc: '가속'
 			},
 			{
 				keys: ['Space'],
-				desc: 'Decelerate'
+				desc: '감속'
 			},
 			{
 				keys: ['W', 'S'],
-				desc: 'Elevators'
+				desc: '상승 / 하강 조종'
 			},
 			{
 				keys: ['A', 'D'],
-				desc: 'Ailerons'
+				desc: '좌우 기울이기'
 			},
 			{
 				keys: ['Q', 'E'],
-				desc: 'Rudder / Steering'
+				desc: '방향타 / 방향 조절'
 			},
 			{
 				keys: ['B'],
-				desc: 'Brake'
+				desc: '제동'
 			},
 			{
 				keys: ['V'],
-				desc: 'View select'
+				desc: '시점 전환'
 			},
 			{
 				keys: ['F'],
-				desc: 'Exit vehicle'
+				desc: '내리기'
 			},
 			{
 				keys: ['Shift', '+', 'R'],
-				desc: 'Respawn'
+				desc: '다시 출발'
 			},
 			{
 				keys: ['Shift', '+', 'C'],
-				desc: 'Free camera'
+				desc: '자유 카메라'
 			},
 		]);
 	}

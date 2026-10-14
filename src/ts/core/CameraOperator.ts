@@ -167,19 +167,19 @@ export class CameraOperator implements IInputReceiver, IUpdatable
 		this.world.updateControls([
 			{
 				keys: ['W', 'S', 'A', 'D'],
-				desc: 'Move around'
+				desc: '이동'
 			},
 			{
 				keys: ['E', 'Q'],
-				desc: 'Move up / down'
+				desc: '위 / 아래로 이동'
 			},
 			{
 				keys: ['Shift'],
-				desc: 'Speed up'
+				desc: '빠르게 이동'
 			},
 			{
 				keys: ['Shift', '+', 'C'],
-				desc: 'Exit free camera mode'
+				desc: '자유 카메라 종료'
 			},
 		]);
 	}

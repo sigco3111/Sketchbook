@@ -1,98 +1,40 @@
-<p align="center">
-	<a href="https://jblaha.art/sketchbook/latest"><img src="./src/img/thumbnail.png"></a>
-	<br>
-	<a href="https://jblaha.art/sketchbook/latest">Live demo</a>
-	<br>
-</p>
+# 📒 Sketchbook 한글판
 
-# Final update (20. Feb 2023)
+3인칭 캐릭터로 섬을 탐험하고 자동차, 비행기, 헬리콥터를 타는 3D 물리 놀이터입니다. 원작은 swift502의 Sketchbook이며, 이 저장소는 원작의 저작자 표시와 기능을 유지한 한국어 포크입니다.
 
-As I have no more interest in developing this project, it comes to a conclusion. In order to remain honest about the true state of the project, I am archiving this repository.
+## 🎮 즐기는 방법
 
-- If you wish to modify Sketchbook feel free to fork it.
-- To see if someone is currently maintaining a fork, check out the [Network Graph](https://github.com/swift502/Sketchbook/network).
+기본 자유 탐험에서 WASD로 이동하고 Shift로 달리며 Space로 점프합니다. F로 가까운 차량에 탑승합니다. 탑승하면 화면 왼쪽에 해당 차량의 조작 방법이 표시됩니다. 오른쪽 시나리오 메뉴에서 타원형·터널·8자 트랙 경주, 루프·초대형 경사로, 항공기 체험으로 전환할 수 있습니다.
 
-# 📒 Sketchbook
+| 기능 | 설명 |
+|---|---|
+| 자동차 | 가속·제동·후진, 조향, 주차 브레이크, 시점 전환 |
+| 비행기 | 가속·감속, 승강타·보조익·방향타 조작 |
+| 헬리콥터 | 상승·하강, 피치·요·롤 조작 |
+| 세계 설정 | 시간 흐름, 태양 높이와 방향 |
+| 그래픽 설정 | 그림자, 계단 현상 완화, FPS 표시 |
+| 자유 카메라 | 세계를 자유롭게 둘러보기 |
 
-Simple web based game engine built on [three.js](https://github.com/mrdoob/three.js) and [cannon.js](https://github.com/schteppe/cannon.js) focused on third-person character controls and related gameplay mechanics.
+## 🇰🇷 한글화 범위
 
-Mostly a playground for exploring how conventional third person gameplay mechanics found in modern games work and recreating them in a general way.
+환영 화면, 로딩, 캐릭터·차량 조작 도움말, 시나리오 이름과 설명, 세계·설정 패널을 번역했습니다. 원본 식별자와 3D 자산은 유지하며 Noto Sans KR을 적용했습니다. 3D 모델이나 텍스처에 직접 그려진 표시는 원본 그대로입니다.
 
-## Features
+## 🛠️ 개발·배포
 
-* World
-	* Three.js scene
-	* Cannon.js physics
-	* Variable timescale
-	* Frame skipping
-	* FXAA anti-aliasing
-* Characters
-	* Third-person camera
-	* Raycast character controller with capsule collisions
-	* General state system
-	* Character AI
-* Vehicles
-	* Cars
-	* Airplanes
-	* Helicopters
-
-All planned features can be found in the [GitHub Projects](https://github.com/swift502/Sketchbook/projects).
-
-## Usage
-
-You can define your own scenes in Blender, and then read them with Sketchbook. Sketchbook needs to run on a local server such as [http-server](https://www.npmjs.com/package/http-server) or [webpack-dev-server](https://github.com/webpack/webpack-dev-server) to be able to load external assets.
-
-<!-- #### Script tag -->
-
-1. Import:
-
-```html
-<script src="sketchbook.min.js"></script>
+```bash
+npm ci
+NODE_OPTIONS=--openssl-legacy-provider npm run build
 ```
 
-2. Load a glb scene defined in Blender:
+구형 webpack 4가 최신 Node.js의 OpenSSL과 충돌하므로 위 옵션이 필요합니다. 정적 index.html, build 디렉터리를 GitHub Pages로 배포합니다. 배포 작업은 `.github/workflows/pages.yml`에서 수행합니다.
 
-```javascript
-const world = new Sketchbook.World('scene.glb');
-```
+## ⚠️ 알려진 제한
 
-<!--
+- 데스크톱 키보드·마우스와 WebGL 지원 브라우저를 권장합니다. 모바일용 게임 조작은 제공하지 않습니다.
+- 경주는 원작과 마찬가지로 랩 수와 순위 판정이 없습니다.
+- 원작자는 2023년 2월 개발 종료를 알렸으며 원본 저장소는 현재 보관 상태입니다. 이 포크는 최신 엔진으로 전면 교체한 버전이 아닙니다.
+- 의존성은 원작의 구형 버전을 사용합니다. 개발 서버를 인터넷에 공개하지 마세요.
 
-#### NPM
+## 📚 원작·라이선스
 
-1. Install:
-
-```
-npm i sketchbook
-```
-
-2. Import:
-
-```javascript
-import { World } from 'sketchbook';
-```
-
-3. Load a glb scene defined in Blender:
-
-```javascript
-const world = new World('scene.glb');
-```
-
--->
-
-## Contributing
-
-1. Get the LTS version of [Node.js](https://nodejs.org/en/) 16
-2. [Fork this repository](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
-3. Run `npm install`
-4. Run `npm run dev`
-5. Make changes and test them out at http://localhost:8080
-6. Commit and [make a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork)!
-
-## Credits
-
-Big thank you to each of the following github users for contributing to Sketchbook:
-
-- [aleqsunder](https://github.com/aleqsunder)
-- [barhatsor](https://github.com/barhatsor)
-- [danshuri](https://github.com/danshuri)
+원작: swift502 / Sketchbook. Three.js와 cannon.js 기반. MIT 라이선스와 원본 저작권 고지를 유지합니다. 원문 README는 `README.en.md`에 보존했습니다.

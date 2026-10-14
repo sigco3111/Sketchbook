@@ -75,9 +75,9 @@ export class World
 		{
 			Swal.fire({
 				icon: 'warning',
-				title: 'WebGL compatibility',
-				text: 'This browser doesn\'t seem to have the required WebGL capabilities. The application may not work correctly.',
-				footer: '<a href="https://get.webgl.org/" target="_blank">Click here for more information</a>',
+				title: 'WebGL 호환성',
+				text: '이 브라우저에서는 필요한 WebGL 기능을 사용할 수 없어 정상적으로 실행되지 않을 수 있습니다.',
+				footer: '<a href="https://get.webgl.org/" target="_blank">자세히 알아보기</a>',
 				showConfirmButton: false,
 				buttonsStyling: false
 			});
@@ -162,10 +162,10 @@ export class World
 				this.setTimeScale(1);
 	
 				Swal.fire({
-					title: 'Welcome to Sketchbook!',
-					text: 'Feel free to explore the world and interact with available vehicles. There are also various scenarios ready to launch from the right panel.',
-					footer: '<a href="https://github.com/swift502/Sketchbook" target="_blank">GitHub page</a><a href="https://discord.gg/fGuEqCe" target="_blank">Discord server</a>',
-					confirmButtonText: 'Okay',
+					title: 'Sketchbook에 오신 것을 환영합니다!',
+					text: '자유롭게 세계를 탐험하고 차량에 탑승해 보세요. 오른쪽 패널에서 다양한 시나리오를 시작할 수 있습니다.',
+					footer: '<a href="https://github.com/swift502/Sketchbook" target="_blank">원본 GitHub</a><a href="https://discord.gg/fGuEqCe" target="_blank">Discord 커뮤니티</a>',
+					confirmButtonText: '시작하기',
 					buttonsStyling: false,
 					onClose: () => {
 						UIManager.setUserInterfaceVisible(true);
@@ -184,8 +184,8 @@ export class World
 			UIManager.setLoadingScreenVisible(false);
 			Swal.fire({
 				icon: 'success',
-				title: 'Hello world!',
-				text: 'Empty Sketchbook world was succesfully initialized. Enjoy the blueness of the sky.',
+				title: '새로운 세계에 오신 것을 환영합니다!',
+				text: '빈 Sketchbook 세계를 준비했습니다. 푸른 하늘을 즐겨 보세요.',
 				buttonsStyling: false
 			});
 		}
@@ -464,7 +464,7 @@ export class World
 	public updateControls(controls: any): void
 	{
 		let html = '';
-		html += '<h2 class="controls-title">Controls:</h2>';
+		html += '<h2 class="controls-title">조작 방법</h2>';
 
 		controls.forEach((row) =>
 		{
@@ -483,6 +483,7 @@ export class World
 	private generateHTML(): void
 	{
 		// Fonts
+		$('head').append('<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">');
 		$('head').append('<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">');
 		$('head').append('<link href="https://fonts.googleapis.com/css2?family=Solway:wght@400;500;700&display=swap" rel="stylesheet">');
 		$('head').append('<link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">');
@@ -497,7 +498,7 @@ export class World
 						<div class="faces2"></div>     
 					</div> 
 				</div> 
-				<div id="loading-text">Loading...</div>
+				<div id="loading-text">불러오는 중...</div>
 			</div>
 		`).appendTo('body');
 
@@ -506,7 +507,7 @@ export class World
 				<div class="github-corner">
 					<a href="https://github.com/swift502/Sketchbook" target="_blank" title="Fork me on GitHub">
 						<svg viewbox="0 0 100 100" fill="currentColor">
-							<title>Fork me on GitHub</title>
+							<title>GitHub에서 원본 보기</title>
 							<path d="M0 0v100h100V0H0zm60 70.2h.2c1 2.7.3 4.7 0 5.2 1.4 1.4 2 3 2 5.2 0 7.4-4.4 9-8.7 9.5.7.7 1.3 2
 							1.3 3.7V99c0 .5 1.4 1 1.4 1H44s1.2-.5 1.2-1v-3.8c-3.5 1.4-5.2-.8-5.2-.8-1.5-2-3-2-3-2-2-.5-.2-1-.2-1
 							2-.7 3.5.8 3.5.8 2 1.7 4 1 5 .3.2-1.2.7-2 1.2-2.4-4.3-.4-8.8-2-8.8-9.4 0-2 .7-4 2-5.2-.2-.5-1-2.5.2-5
@@ -542,31 +543,31 @@ export class World
 		const gui = new GUI.GUI();
 
 		// Scenario
-		this.scenarioGUIFolder = gui.addFolder('Scenarios');
+		this.scenarioGUIFolder = gui.addFolder('시나리오');
 		this.scenarioGUIFolder.open();
 
 		// World
-		let worldFolder = gui.addFolder('World');
-		worldFolder.add(this.params, 'Time_Scale', 0, 1).listen()
+		let worldFolder = gui.addFolder('세계');
+		worldFolder.add(this.params, 'Time_Scale', 0, 1).name('시간 흐름').listen()
 			.onChange((value) =>
 			{
 				scope.timeScaleTarget = value;
 			});
-		worldFolder.add(this.params, 'Sun_Elevation', 0, 180).listen()
+		worldFolder.add(this.params, 'Sun_Elevation', 0, 180).name('태양 높이').listen()
 			.onChange((value) =>
 			{
 				scope.sky.phi = value;
 			});
-		worldFolder.add(this.params, 'Sun_Rotation', 0, 360).listen()
+		worldFolder.add(this.params, 'Sun_Rotation', 0, 360).name('태양 방향').listen()
 			.onChange((value) =>
 			{
 				scope.sky.theta = value;
 			});
 
 		// Input
-		let settingsFolder = gui.addFolder('Settings');
-		settingsFolder.add(this.params, 'FXAA');
-		settingsFolder.add(this.params, 'Shadows')
+		let settingsFolder = gui.addFolder('설정');
+		settingsFolder.add(this.params, 'FXAA').name('계단 현상 완화');
+		settingsFolder.add(this.params, 'Shadows').name('그림자')
 			.onChange((enabled) =>
 			{
 				if (enabled)
@@ -582,17 +583,17 @@ export class World
 					});
 				}
 			});
-		settingsFolder.add(this.params, 'Pointer_Lock')
+		settingsFolder.add(this.params, 'Pointer_Lock').name('마우스 시점 고정')
 			.onChange((enabled) =>
 			{
 				scope.inputManager.setPointerLock(enabled);
 			});
-		settingsFolder.add(this.params, 'Mouse_Sensitivity', 0, 1)
+		settingsFolder.add(this.params, 'Mouse_Sensitivity', 0, 1).name('마우스 감도')
 			.onChange((value) =>
 			{
 				scope.cameraOperator.setSensitivity(value, value * 0.8);
 			});
-		settingsFolder.add(this.params, 'Debug_Physics')
+		settingsFolder.add(this.params, 'Debug_Physics').name('물리 디버그')
 			.onChange((enabled) =>
 			{
 				if (enabled)
@@ -610,7 +611,7 @@ export class World
 					char.raycastBox.visible = enabled;
 				});
 			});
-		settingsFolder.add(this.params, 'Debug_FPS')
+		settingsFolder.add(this.params, 'Debug_FPS').name('FPS 표시')
 			.onChange((enabled) =>
 			{
 				UIManager.setFPSVisible(enabled);

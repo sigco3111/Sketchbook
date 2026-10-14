@@ -298,31 +298,31 @@ export class Car extends Vehicle implements IControllable
 		this.world.updateControls([
 			{
 				keys: ['W', 'S'],
-				desc: 'Accelerate, Brake / Reverse'
+				desc: '가속, 제동 / 후진'
 			},
 			{
 				keys: ['A', 'D'],
-				desc: 'Steering'
+				desc: '방향 조절'
 			},
 			{
 				keys: ['Space'],
-				desc: 'Handbrake'
+				desc: '주차 브레이크'
 			},
 			{
 				keys: ['V'],
-				desc: 'View select'
+				desc: '시점 전환'
 			},
 			{
 				keys: ['F'],
-				desc: 'Exit vehicle'
+				desc: '내리기'
 			},
 			{
 				keys: ['Shift', '+', 'R'],
-				desc: 'Respawn'
+				desc: '다시 출발'
 			},
 			{
 				keys: ['Shift', '+', 'C'],
-				desc: 'Free camera'
+				desc: '자유 카메라'
 			},
 		]);
 	}

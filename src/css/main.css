@@ -5,3 +5,6 @@
 @import "modules/loadingScreen.css";
 @import "modules/cubeLoader.css";
 @import "modules/welcomeScreen.css";
+
+body, .sb-font, .swal2-popup, .dg, .dg input {font-family: "Noto Sans KR", sans-serif !important;}
+.ctrl-desc {font-size: 14px;}

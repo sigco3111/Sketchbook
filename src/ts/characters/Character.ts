@@ -456,27 +456,27 @@ export class Character extends THREE.Object3D implements IWorldEntity
 		this.world.updateControls([
 			{
 				keys: ['W', 'A', 'S', 'D'],
-				desc: 'Movement'
+				desc: '이동'
 			},
 			{
 				keys: ['Shift'],
-				desc: 'Sprint'
+				desc: '달리기'
 			},
 			{
 				keys: ['Space'],
-				desc: 'Jump'
+				desc: '점프'
 			},
 			{
 				keys: ['F', 'or', 'G'],
-				desc: 'Enter vehicle'
+				desc: '차량 탑승'
 			},
 			{
 				keys: ['Shift', '+', 'R'],
-				desc: 'Respawn'
+				desc: '다시 출발'
 			},
 			{
 				keys: ['Shift', '+', 'C'],
-				desc: 'Free camera'
+				desc: '자유 카메라'
 			},
 		]);
 	}
